@@ -28,7 +28,7 @@ const projects = [
       "A fast, responsive portfolio built with React + Tailwind and deployed with modern tooling.",
     image: "projects/project3.png",
     tags: ["React", "Vite", "Tailwind"],
-    demoUrl: "",
+    demoUrl: "https://portfolio-dhyan-aaran.netlify.app/",
     githubUrl: "https://github.com/dhyan66/Portfolio.git",
   },
   {
