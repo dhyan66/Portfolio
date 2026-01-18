@@ -74,7 +74,7 @@ export const ProjectsSection = () => {
                 className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover border flex flex-col"
               >
                 {/* Image */}
-                <div className="h-48 overflow-hidden shrink-0">
+                <div className="h-40 overflow-hidden shrink-0">
                   <img
                     src={imageSrc}
                     alt={project.title}
