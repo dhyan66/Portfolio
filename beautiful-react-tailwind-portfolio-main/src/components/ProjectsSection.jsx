@@ -1,4 +1,5 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { TechIcons } from "./TechIcons";
 
 const projects = [
   {
@@ -7,9 +8,11 @@ const projects = [
     description:
       "Student support app with backend APIs, payments integration, and KPI-style reporting.",
     image: "projects/project1.png",
-    tags: ["Java", "Spring Boot", "Firebase", "PayPal", "MySQL"],
-    demoUrl: "",
-    githubUrl: "https://github.com/dhyan66/DAL-Tutor-APP.git",
+    technologies: ["Java", "Spring Boot", "Firebase", "PayPal", "MySQL"],
+    links: {
+      demo: "",
+      github: "https://github.com/dhyan66/DAL-Tutor-APP.git",
+    },
   },
   {
     id: 2,
@@ -17,9 +20,11 @@ const projects = [
     description:
       "Cleaned and analyzed large football datasets and built dashboards to visualize performance trends.",
     image: "projects/project2.png",
-    tags: ["MySQL", "Tableau", "Excel"],
-    demoUrl: "",
-    githubUrl: "https://github.com/dhyan66/football-database.git",
+    technologies: ["MySQL", "Tableau", "Excel"],
+    links: {
+      demo: "",
+      github: "https://github.com/dhyan66/football-database.git",
+    },
   },
   {
     id: 3,
@@ -27,9 +32,11 @@ const projects = [
     description:
       "A fast, responsive portfolio built with React + Tailwind and deployed with modern tooling.",
     image: "projects/project3.png",
-    tags: ["React", "Vite", "Tailwind"],
-    demoUrl: "https://portfolio-dhyan-aaran.netlify.app/",
-    githubUrl: "https://github.com/dhyan66/Portfolio.git",
+    technologies: ["React", "Vite", "Tailwind CSS"],
+    links: {
+      demo: "https://portfolio-dhyan-aaran.netlify.app/",
+      github: "https://github.com/dhyan66/Portfolio.git",
+    },
   },
   {
     id: 4,
@@ -37,9 +44,11 @@ const projects = [
     description:
       "A modern Apple-style website clone with responsive UI and smooth interactions.",
     image: "projects/project4.png",
-    tags: ["JavaScript", "Vite", "Tailwind"],
-    demoUrl: "https://malhar999clone.netlify.app/",
-    githubUrl: "https://github.com/dhyan66/Apple_Website_Clone",
+    technologies: ["JavaScript", "Vite", "Tailwind CSS"],
+    links: {
+      demo: "https://malhar999clone.netlify.app/",
+      github: "https://github.com/dhyan66/Apple_Website_Clone",
+    },
   },
 ];
 
@@ -87,17 +96,10 @@ export const ProjectsSection = () => {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <TechIcons
+                    technologies={project.technologies}
+                    className="mb-4"
+                  />
 
                   <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
 
@@ -109,9 +111,9 @@ export const ProjectsSection = () => {
                   <div className="mt-auto pt-4">
                     <div className="flex items-center gap-2">
                       {/* Demo icon slot (always takes space) */}
-                      {project.demoUrl ? (
+                      {project.links.demo ? (
                         <a
-                          href={project.demoUrl}
+                          href={project.links.demo}
                           target="_blank"
                           rel="noreferrer"
                           className={iconSlot}
@@ -126,9 +128,9 @@ export const ProjectsSection = () => {
                       )}
 
                       {/* GitHub icon (now always in same spot) */}
-                      {project.githubUrl ? (
+                      {project.links.github ? (
                         <a
-                          href={project.githubUrl}
+                          href={project.links.github}
                           target="_blank"
                           rel="noreferrer"
                           className={iconSlot}
