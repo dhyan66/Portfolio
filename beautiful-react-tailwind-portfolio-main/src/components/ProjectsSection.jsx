@@ -9,7 +9,7 @@ const projects = [
     image: "projects/project1.png",
     tags: ["Java", "Spring Boot", "Firebase", "PayPal", "MySQL"],
     demoUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/dhyan66/DAL-Tutor-APP.git",
   },
   {
     id: 2,
