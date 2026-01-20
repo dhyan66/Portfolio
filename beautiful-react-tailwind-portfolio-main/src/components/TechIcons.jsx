@@ -1,6 +1,6 @@
 export const iconMap = {
   Java: {
-    src: "https://cdn.simpleicons.org/java",
+    src: "https://cdn-icons-png.flaticon.com/512/226/226777.png",
     label: "Java",
   },
   "Spring Boot": {
