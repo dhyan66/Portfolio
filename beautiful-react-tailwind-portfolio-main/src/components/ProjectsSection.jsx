@@ -50,6 +50,17 @@ const projects = [
       github: "https://github.com/dhyan66/Apple_Website_Clone",
     },
   },
+  {
+    id: 5,
+    title: "3rdARC Productions",
+    description: "Photography production company website.",
+    image: "projects/project5.png",
+    technologies: [],
+    links: {
+      demo: "https://3rdarcproductions.netlify.app/",
+      github: "https://github.com/dhyan66/3rdARC.git",
+    },
+  },
 ];
 
 export const ProjectsSection = () => {
