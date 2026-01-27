@@ -46,7 +46,7 @@ const projects = [
     image: "projects/project4.png",
     technologies: ["JavaScript", "Vite", "Tailwind CSS"],
     links: {
-      demo: "https://malhar999clone.netlify.app/",
+      demo: "https://dhyanaaple.netlify.app/",
       github: "https://github.com/dhyan66/Apple_Website_Clone",
     },
   },
