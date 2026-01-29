@@ -27,7 +27,19 @@ const skills = [
   { name: "VS Code", level: 85, category: "tools" },
 ];
 
-const categories = ["all", "development", "data", "tools"];
+const categories = [
+  { key: "all", label: "All" },
+  { key: "development", label: "Dev" },
+  { key: "data", label: "Data" },
+  { key: "tools", label: "Tools" },
+];
+
+const getLevelLabel = (level) => {
+  if (level >= 85) return "Expert";
+  if (level >= 70) return "Advanced";
+  if (level >= 55) return "Intermediate";
+  return "Beginner";
+};
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -42,43 +54,40 @@ export const SkillsSection = () => {
           My <span className="text-primary"> Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {categories.map((category) => (
             <button
-              key={key}
-              onClick={() => setActiveCategory(category)}
+              key={category.key}
+              onClick={() => setActiveCategory(category.key)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-                activeCategory === category
+                "px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-300",
+                activeCategory === category.key
                   ? "bg-primary text-primary-foreground"
 	                  : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
             >
-              {category}
+              {category.label}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              className="bg-card p-4 rounded-lg shadow-xs card-hover"
             >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <h3 className="font-semibold text-sm">{skill.name}</h3>
+                <span className="text-xs text-muted-foreground">
+                  {getLevelLabel(skill.level)}
+                </span>
               </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-secondary/50 h-1.5 rounded-full overflow-hidden">
                 <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
+                  className="bg-primary h-1.5 rounded-full origin-left animate-[grow_1.2s_ease-out]"
                   style={{ width: skill.level + "%" }}
                 />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
               </div>
             </div>
           ))}
